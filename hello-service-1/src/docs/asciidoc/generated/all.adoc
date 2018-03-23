@@ -1,0 +1,61 @@
+= hello
+
+
+[[_overview]]
+== Overview
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:18081
+__BasePath__ : /
+
+
+=== Tags
+
+* hello-controller : Hello Controller
+
+
+
+
+[[_paths]]
+== Paths
+
+[[_indexusingget]]
+=== index
+....
+GET /hello
+....
+
+
+==== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+==== Consumes
+
+* `application/json`
+
+
+==== Produces
+
+* `*/*`
+
+
+==== Tags
+
+* hello-controller
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.myke.common.MyKeConfig",
+      "name": "my.ke",
+      "type": "com.myke.common.MyKeConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.myke.common.MyKeConfig",
+      "name": "my.ke.name",
+      "type": "java.lang.String"
+    }
+  ]
+}
