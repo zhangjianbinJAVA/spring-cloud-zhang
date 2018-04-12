@@ -20,4 +20,9 @@ public class HelloRibbonController {
         return helloRibbonClient.index();
     }
 
+    @GetMapping("/retry-hello")
+    public String retryHello() {
+        return helloRibbonClient.retryHello();
+    }
+
 }

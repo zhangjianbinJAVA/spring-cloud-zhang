@@ -10,6 +10,7 @@ org.springframework.cloud.netflix.eureka.`EurekaDiscoveryClient` 是对 `Discove
 接口的实现，它实现的是对Eureka 发现服务的封装，并依赖com.netflix.discovery.`EurekaClient` 接口，
 而真正实现发现服务的则是 `com.netflix.discovery.DiscoveryClient` 类,
 而获取 serviceUrl的地址是`com.netflix.discovery.DiscoveryClient` 类中的方法`getEurekaServiceUrlsFromConfig`
+
 ![image_txt](./img/eureka服务发现接口.png)
 
 ### eureka 加载 serviceUrl 加可以从配置中也可以从cdn中（cdn可以动态添加eureka服务端）
@@ -84,7 +85,7 @@ public static Map<String, List<String>> getServiceUrlsMapFromConfig(EurekaClient
     
 ```
 
-## Regin 和 zone 一对多的关系
+###  Regin 和 zone 一对多的关系
 regin 默认值 default 
 
 zone 默认值 defaultZone

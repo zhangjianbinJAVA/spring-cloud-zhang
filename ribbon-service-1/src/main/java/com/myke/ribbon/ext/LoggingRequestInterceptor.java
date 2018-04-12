@@ -39,8 +39,8 @@ public class LoggingRequestInterceptor implements ClientHttpRequestInterceptor {
         for (Map.Entry<String, List<String>> map:entries){
             String key = map.getKey();
             List<String> value = map.getValue();
-            log.info("{},{}",key,value);
+//            log.info("{},{}",key,value);
         }
-        log.info("url:{},method:{},body:{},response status code:{}", request.getURI(), request.getMethod(), body, response.getStatusCode());
+//        log.info("url:{},method:{},body:{},response status code:{}", request.getURI(), request.getMethod(), body, response.getStatusCode());
     }
 }

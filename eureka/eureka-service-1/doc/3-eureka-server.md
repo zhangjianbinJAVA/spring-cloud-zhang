@@ -96,10 +96,10 @@ private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> regist
 
 
 
-##github
+## github
 Eureka的Github：https://github.com/Netflix/Eureka
 
-##Region、Zone解析
+## Region、Zone解析
 region ：表示AWS中的地理位置，每个region 都有多个 availability zone,各个 region 之间完全隔离;
 
 在非AWS环境下，可以将 availability zone 理解成机房，将 region 理解为跨机房的 eureka集群;
@@ -111,7 +111,7 @@ http://www.itmuch.com/spring-cloud-1/
 对region和zone感兴趣的读者可前往http://blog.csdn.net/awschina/article/details/17639191 扩展阅读。
 
 
-##Eureka包含两个组件：Eureka Server 和 Eureka Client，它们的作用如下
+## Eureka包含两个组件：Eureka Server 和 Eureka Client，它们的作用如下
 - Eureka Client是一个Java客户端，用于简化与Eureka Server的交互；
 
 - Eureka Server提供服务发现的能力，各个微服务启动时，会通过Eureka Client向Eureka Server进行注册自己的信息（例如网络信息），Eureka Server会存储该服务的信息；
@@ -124,7 +124,7 @@ http://www.itmuch.com/spring-cloud-1/
 Eureka Client会缓存Eureka Server中的信息。即使所有的Eureka Server节点都宕掉，服务消费者依然可以使用缓存中的信息找到服务提供者。
 
 
-# 参考资料
+### 参考资料
 http://fengyilin.iteye.com/blog/2367265
 
 ## 为什么利用Eureka注册一个instance需要很长的时间 

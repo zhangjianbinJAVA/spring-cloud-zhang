@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * user: zhangjianbin <br/>
@@ -26,17 +27,34 @@ public class HelloController {
     @Autowired
     private DiscoveryClient client;
 
+    private AtomicInteger cout = new AtomicInteger();
+
     @GetMapping("/hello")
     public String index() {
         ServiceInstance instance = client.getLocalServiceInstance();
-        log.info("/hello host:{},serviceId:{}", instance.getHost(), instance.getServiceId());
+        log.info("/hello host:{},port:{},serviceId:{}", instance.getHost(), instance.getPort(), instance.getServiceId());
+        return "Hello World";
+    }
+
+    @GetMapping("/retry-hello")
+    public String retryHello() {
+        ServiceInstance instance = client.getLocalServiceInstance();
+        log.info("/retry-hello count:{} host:{},port:{},serviceId:{}", cout.incrementAndGet(), instance.getHost(), instance.getPort(), instance.getServiceId());
+        try {
+
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
         return "Hello World";
     }
 
     @GetMapping("/headers")
     public Map<String, String> gethead(HttpServletRequest request) {
         String header = request.getHeader("X-ECC-Zuul-Forwarded-Domain");
-        LOG.info("X-ECC-Zuul-Forwarded-Domain:{}",header);
+        LOG.info("X-ECC-Zuul-Forwarded-Domain:{}", header);
 
         Map<String, String> headersInfo = getHeadersInfo(request);
         LOG.info("headersInfo:{}", headersInfo);
