@@ -123,6 +123,13 @@
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.4" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: nl.jworks.markdown_to_asciidoc:markdown_to_asciidoc:1.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.pegdown:pegdown:1.4.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.parboiled:parboiled-java:1.1.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.parboiled:parboiled-core:1.1.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.ow2.asm:asm-tree:4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.ow2.asm:asm-analysis:4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.ow2.asm:asm-util:4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: org.jsoup:jsoup:1.8.1" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-compat-spec-parser:1.0.25" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-core:1.5.12" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.5" level="project" />

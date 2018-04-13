@@ -1,4 +1,4 @@
-package com.myke.ribbon.ext;
+package com.myke.ribbon.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;

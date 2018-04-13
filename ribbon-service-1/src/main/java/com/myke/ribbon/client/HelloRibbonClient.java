@@ -12,11 +12,13 @@ import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import javax.sound.midi.Soundbank;
 import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
+ * 没有 hystrix
  * user: zhangjianbin <br/>
  * date: 2018/1/18 15:10
  */
@@ -26,7 +28,7 @@ public class HelloRibbonClient {
 
     private static final String HELLO_SERVICE_URL = "http://HELLO-SERVICE-1";
 
-    @Autowired
+    @Resource(name = "retryRestTemplate")
     private RestTemplate restTemplate;
 
     @Autowired
