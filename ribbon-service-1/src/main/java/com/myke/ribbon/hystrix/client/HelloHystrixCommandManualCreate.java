@@ -10,6 +10,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
+ * 1
+ *
  * @author zhangjianbin
  * @version v1.0
  * @date 2017/8/4 10:21
@@ -35,6 +37,14 @@ public class HelloHystrixCommandManualCreate extends HystrixCommand<String> {
 
     public HelloHystrixCommandManualCreate(Setter setter, RestTemplate restTemplate, String str) {
         super(setter);
+
+        // withGroupKey 来设置命令组名
+        // andCommandKey 来设置命令名
+        // andThreadPoolKey 实现更细粒度的 线程池 划分
+//        super(Setter.withGroupKey(
+//                HystrixCommandGroupKey.Factory.asKey("groupName")).
+//                andCommandKey(HystrixCommandKey.Factory.asKey("commandName"))
+//                .andThreadPoolKey(HystrixThreadPoolKey.Factory.asKey("threadPoolKey")));
         this.restTemplate = restTemplate;
         this.str = str;
     }

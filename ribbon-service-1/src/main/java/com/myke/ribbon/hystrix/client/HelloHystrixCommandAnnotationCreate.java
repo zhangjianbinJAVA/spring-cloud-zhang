@@ -11,6 +11,8 @@ import javax.annotation.Resource;
 import java.util.concurrent.Future;
 
 /**
+ * 2
+ *
  * @author zhangjianbin
  * @version v1.0
  * @date 2017/8/4 10:21
@@ -63,5 +65,23 @@ public class HelloHystrixCommandAnnotationCreate {
         };
     }
 
+
+    /**
+     * 设置命令名称、分组以及线程池划分
+     *
+     * commandKey 命令名称
+     *
+     * groupKey 分组名
+     *
+     * threadPoolKey 线程池划分名
+     *
+     * @param str
+     * @return
+     */
+    @HystrixCommand(commandKey = "getHelloStr_Thread", groupKey = "groupKey", threadPoolKey = "threadKey")
+    public String getHelloStr_Thread(String str) {
+        logger.info(" 同步执行的实现 执行 getHelloStr_1 ……");
+        return restTemplate.getForEntity(HELLO_SERVICE_URL + "/hello?str={1}", String.class, str).getBody();
+    }
 
 }

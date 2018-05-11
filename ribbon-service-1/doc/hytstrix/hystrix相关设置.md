@@ -1,4 +1,4 @@
-###命令名称、分组及线程池划分
+### 命令名称、分组及线程池划分
 - 以继承方式实现的hystrix 命令使用类名作为默认的命令名称，可以通过构造函数来设置
 ```
  public HelloHystrixCommand(RestTemplate restTemplate, String str) {
@@ -128,7 +128,7 @@ AbstractCommand.toObservable()
 - 将请求结果加入缓存
 
 
-####注解实现请求缓存
+#### 注解实现请求缓存
 - JSR 107是java 缓存 API 的定义，也被称为 JCache
 - 请求缓存的注解
 @CacheResult 用来标记请求命令返回的结果应该被缓存 必需与 @HystrixCommand注解结合使用
@@ -136,7 +136,7 @@ AbstractCommand.toObservable()
 @CacheKey 用来标记缓存的key 值 ，如果没有标记，则会使用所有参数
 
 
-####请求合并   @HystrixCollapser
+#### 请求合并   @HystrixCollapser
 微服架构中的依赖通常通过远程调用实现，而远程调用中最常见的问题就是通信的消耗与连接数占用。
 在高并发下，因通信次数的增加，总的通信时间消耗将会变得不那么理想，同时，因为依赖服务的线程池资源有限
 ，将出现排队等待与响应延迟的情况。为了优化这两个问题，@HystrixCollapser 来实现请求的合并，以减少通

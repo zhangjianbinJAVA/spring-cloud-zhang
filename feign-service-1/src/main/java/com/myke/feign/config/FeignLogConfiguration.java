@@ -1,6 +1,7 @@
 package com.myke.feign.config;
 
 import feign.Logger;
+import feign.Retryer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,9 +29,20 @@ public class FeignLogConfiguration {
      */
 //    @Bean
 //    public Retryer retryer() {
-//        // 该FeignClient的重试次数，重试间隔为 ms，最大重试时间 ms,重试次数(包含第一次请求)。
+//        // 该 FeignClient 的重试次数，重试间隔为 ms，最大重试时间 ms,重试次数(包含第一次请求)。
 //        // feign 请求处理超时 时就会进行重试，会有 RETRYING 再试 的日志
 //        return new Retryer.Default(100, 2000, 4);
+//    }
+
+
+    /**
+     * feign取消重试
+     *
+     * @return
+     */
+//    @Bean
+//    public Retryer feignRetryer() {
+//        return Retryer.NEVER_RETRY;
 //    }
 
     /**

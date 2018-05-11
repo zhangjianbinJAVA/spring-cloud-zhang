@@ -1,6 +1,6 @@
-###异常处理
+### 异常处理
 
-####异常传播
+#### 异常传播
 在 HystrixCommand 实现的 run 方法中抛出异常时，除了 HystrixBadRequestException 之处，其他
 异常均会被 hystrix 认为命令执行失败并触发服务降级的处理逻辑
 

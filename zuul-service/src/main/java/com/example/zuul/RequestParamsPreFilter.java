@@ -43,9 +43,12 @@ public class RequestParamsPreFilter extends ZuulFilter {
         currentDomain = StringUtils.removeStartIgnoreCase(currentDomain, "www.");
         ctx.addZuulRequestHeader("X-ECC-Zuul-Forwarded-Domain", currentDomain);
 
+
+
         LOG.info("zuulRequestHeaders:{}", zuulRequestHeaders);
 
         debugParamLog(request);
+        RoutingUtil.zuulDebugPrint(ctx);
         return null;
     }
 
@@ -59,6 +62,7 @@ public class RequestParamsPreFilter extends ZuulFilter {
         Map<String, List<String>> queryParams = HTTPRequestUtils.getInstance().getQueryParams();
         String result2 = gson.toJson(queryParams);
         LOG.info("getQueryParams网关转换后的请求地址参数为=====>>{}", result2);
+
 
         Map<String, String> headersInfo = getHeadersInfo(request);
         LOG.info("当前请求头信息 headersInfo:{}", gson.toJson(headersInfo));
