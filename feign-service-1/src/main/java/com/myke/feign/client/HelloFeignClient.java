@@ -19,7 +19,7 @@ public interface HelloFeignClient {
     /******************** 参数 ***************************/
 
     @RequestMapping(value = "/request-param", method = RequestMethod.GET)
-    Map<String, String> requestParam(@RequestParam("name") String name, @RequestParam("address") String address);
+    Map<String, String> requestParam(@RequestParam(value = "name",required = false) String name, @RequestParam(value = "address",required = false) String address);
 
 
     @RequestMapping(value = "/request-header", method = RequestMethod.GET)

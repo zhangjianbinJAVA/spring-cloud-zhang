@@ -14,7 +14,11 @@ public class FeignTokenInterceptor implements RequestInterceptor {
 
     @Override
     public void apply(RequestTemplate template) {
-        // 1.模拟获取request.header参数
-        //template.header(header, headerValue);
+        // 1.添加 feign 的请求头 参数
+//        template.header(header, headerValue);
+//          template.header("Accept-Encoding","gzip");
+
+        // 对所有的请求url 追加请求参数
+        template.query("token","ZGVsZXRlX3Rva2VuX2J5X2Jhc2U2NA==");
     }
 }

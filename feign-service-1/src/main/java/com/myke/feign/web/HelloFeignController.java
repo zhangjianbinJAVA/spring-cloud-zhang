@@ -18,7 +18,7 @@ public class HelloFeignController {
     private HelloFeignClient helloFeignClient;
 
     @RequestMapping(value = "/request-param", method = RequestMethod.GET)
-    public Map<String, String> requestParam(@RequestParam String name, @RequestParam String address) {
+    public Map<String, String> requestParam(@RequestParam(required = false) String name, @RequestParam(required = false) String address) {
         return helloFeignClient.requestParam(name, address);
     }
 

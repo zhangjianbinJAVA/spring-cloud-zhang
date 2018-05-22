@@ -1,5 +1,12 @@
 ### 默认情况下，SpringCloud Feign会为将所有Feign客户端的方法都封装到Hystrix命令中进行服务保护
 
+### 设置全局的超时时间 hystrix 熔断超时时间
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=8000
+
+### hystrix 方法级别 超时配置
+hystrix.command.LocalHelloServiceClinet#add(Calculator).execution.isolation.thread.timeoutInMilliseconds=1000
+
+
 ### 全局 关闭 hystrix 
 feign.hystrix.enabled=false
 
@@ -79,4 +86,9 @@ static HystrixThreadPool getInstance(HystrixThreadPoolKey threadPoolKey,
 2. hystrix.threadpool.hello-service.coreSize=20 
     - 只对指定的服务配置线程池大小
     - 可以将对队列设置大小，将线程池设为小点
-    
+
+
+### feign fallback
+1. 添加 @Component
+2. 实现 feign 的接口
+3. fallback = 实现类   

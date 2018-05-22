@@ -1,7 +1,10 @@
 ### feign client 分析
-Client 接口
-LoadBalancerFeignClient feign 负载均衡器
-FeignAutoConfiguration  feign 自动配置
+Client 接口  
+LoadBalancerFeignClient feign 负载均衡器   
+FeignAutoConfiguration  feign 自动配置  
+
+## feign 和 ribbon 自动化配置类
+FeignRibbonClientAutoConfiguration
 
 默认使用 HttpURLConnection
 feign.Client.Default 
@@ -24,7 +27,10 @@ feign.Client.Default
 
 ### feign 请求配置
 ```
+连接时间
 connectTimeoutMillis:2000
+
+读取超时时间
 readTimeoutMillis:5000
 
 public Options(int connectTimeoutMillis, int readTimeoutMillis){
@@ -38,23 +44,24 @@ public Request.Options options() {
 }   
 ```
 
+### feign 拦截器接口类
+RequestInterceptor
+
 ### feign 压缩配置 ApacheHttpClient 客户端下有效
 FeignAcceptGzipEncodingAutoConfiguration
 
-### feign request option 默认继承 ribbon 的配置
+### feign request option 默认继承 ribbon 的配置，所以配置 ribbon 的配置项 也能覆盖 feign 的配置项
 FeignOptionsClientConfig extends DefaultClientConfigImpl
 
-### feign　请求执行开始
-LoadBalancerFeignClient#execute
+### feign　请求执行逻辑
+1. FeignLoadBalancer#execute   
+2. LoadBalancerFeignClient#execute
 
 ### RetryTemplate 的重试处理类
 RetryableFeignLoadBalancer
 
-## feign 和 ribbon 自动化配置类
-FeignRibbonClientAutoConfiguration
 
-
-CachingSpringLoadBalancerFactory类中 当有 RetryTemplate 依赖时，重试自动开启
+CachingSpringLoadBalancerFactory 类中 当有 RetryTemplate 依赖时，重试自动开启
 ```
 public FeignLoadBalancer create(String clientName) {
 		if (this.cache.containsKey(clientName)) {
@@ -105,7 +112,7 @@ protected <T, E extends Throwable> T doExecute(RetryCallback<T, E> retryCallback
 
 ```
 
-## LoadBalancerContext 类中有默认重试次数
+## LoadBalancerContext 类中有默认重试次数 当工程中有 spring-retry的依赖时，会使用该类处理重试逻辑
 ### RibbonLoadBalancedRetryPolicyFactory 查看哪些请求方式需要重试
 ```
 @Override
@@ -206,7 +213,7 @@ FeignLoadBalancer 类中的 getRequestSpecificRetryHandler 函数逻辑
 第一步：添加依赖
 ```
 <!-- 整合hystrix，其实feign中自带了hystrix，
-引入该依赖主要是为了使用其中的hystrix-metrics-event-stream，用于dashboard -->
+引入该依赖主要是为了使用其中的hystrix-metrics-event-stream，用于 dashboard -->
 <dependency>
   <groupId>org.springframework.cloud</groupId>
   <artifactId>spring-cloud-starter-hystrix</artifactId>
@@ -225,8 +232,6 @@ public class MovieFeignHystrixApplication {
   }
 }
 ```
-
-
 
 ### 如果需要自定义单个Feign配置，Feign的@Configuration 
 

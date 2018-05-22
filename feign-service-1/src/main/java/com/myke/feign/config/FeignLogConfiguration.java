@@ -15,6 +15,11 @@ public class FeignLogConfiguration {
     /**
      * feign logger 日志
      *
+     * none ：不记录任何信息
+     * basic ：仅记录请求方法、URL以及响应状态码和执行时间
+     * headres : 除了记录BASIC级别的信息之外，还会记录请求和响应的头信息
+     * full :记 录所有请求与响应的明细，包括头信息、请求体、元数据等
+     *
      * @return
      */
     @Bean
@@ -61,8 +66,8 @@ public class FeignLogConfiguration {
      *
      * @return
      */
-//    @Bean
-//    public FeignTokenInterceptor basicAuthRequestInterceptor() {
-//        return new FeignTokenInterceptor();
-//    }
+    @Bean
+    public FeignTokenInterceptor basicAuthRequestInterceptor() {
+        return new FeignTokenInterceptor();
+    }
 }
