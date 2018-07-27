@@ -1,10 +1,14 @@
 package com.myke.feign.web;
 
+import com.jd.ecc.commons.web.model.RespData;
+import com.myke.feign.client.AuthClient;
 import com.myke.feign.client.HelloFeignClient;
+import com.myke.feign.client.HelloFeignClient2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,6 +20,22 @@ public class HelloFeignController {
 
     @Autowired
     private HelloFeignClient helloFeignClient;
+
+    @Autowired
+    private HelloFeignClient2 helloFeignClient2;
+
+    @Autowired
+    private AuthClient authClient;
+
+    @RequestMapping(value = "/hello-1", method = RequestMethod.GET)
+    public String hello1() {
+        return helloFeignClient.getHello();
+    }
+
+    @RequestMapping(value = "/hello-2", method = RequestMethod.GET)
+    public String hello2() {
+        return helloFeignClient2.getHello();
+    }
 
     @RequestMapping(value = "/request-param", method = RequestMethod.GET)
     public Map<String, String> requestParam(@RequestParam(required = false) String name, @RequestParam(required = false) String address) {
@@ -56,4 +76,9 @@ public class HelloFeignController {
         return helloFeignClient.timeout();
     }
 
+
+    @GetMapping("/queryAllResources")
+    public RespData qurery() {
+        return authClient.queryAllResources();
+    }
 }

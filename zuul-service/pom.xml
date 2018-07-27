@@ -47,9 +47,16 @@
 
         <!--基于JVM实现的动态语言 groovy-->
         <!--<dependency>-->
-            <!--<groupId>org.codehaus.groovy</groupId>-->
-            <!--<artifactId>groovy-all</artifactId>-->
+        <!--<groupId>org.codehaus.groovy</groupId>-->
+        <!--<artifactId>groovy-all</artifactId>-->
         <!--</dependency>-->
+
+        <!-- 日志显示 traceId -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

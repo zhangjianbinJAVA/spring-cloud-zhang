@@ -4,6 +4,7 @@ import feign.Logger;
 import feign.Retryer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * @author zhangjianbin
@@ -23,6 +24,7 @@ public class FeignLogConfiguration {
      * @return
      */
     @Bean
+    @Primary
     public Logger.Level feignLoggerLevel() {
         return Logger.Level.FULL;
     }
@@ -38,6 +40,11 @@ public class FeignLogConfiguration {
 //        // feign 请求处理超时 时就会进行重试，会有 RETRYING 再试 的日志
 //        return new Retryer.Default(100, 2000, 4);
 //    }
+
+    @Bean
+    public Retryer retryer(){
+        return Retryer.NEVER_RETRY;
+    }
 
 
     /**
@@ -66,8 +73,8 @@ public class FeignLogConfiguration {
      *
      * @return
      */
-    @Bean
-    public FeignTokenInterceptor basicAuthRequestInterceptor() {
-        return new FeignTokenInterceptor();
-    }
+//    @Bean
+//    public FeignTokenInterceptor basicAuthRequestInterceptor() {
+//        return new FeignTokenInterceptor();
+//    }
 }

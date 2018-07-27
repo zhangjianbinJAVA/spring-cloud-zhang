@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -33,6 +31,8 @@ public class HelloController {
     public String index() {
         ServiceInstance instance = client.getLocalServiceInstance();
         log.info("/hello host:{},port:{},serviceId:{}", instance.getHost(), instance.getPort(), instance.getServiceId());
+        Map<String, String> map = new HashMap();
+        map.put("result", "Hello World");
         return "Hello World";
     }
 

@@ -2,6 +2,7 @@ package com.example.zuul;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @version v1.0
  * @date 2017/5/18 10:26
  */
+@EnableFeignClients
 @EnableZuulProxy
 @SpringBootApplication
 public class ZuulApplication {

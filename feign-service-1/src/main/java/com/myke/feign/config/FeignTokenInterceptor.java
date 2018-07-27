@@ -2,6 +2,7 @@ package com.myke.feign.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import org.springframework.stereotype.Component;
 
 /**
  * feign 拦截器，用于添加自定义请求头
@@ -10,7 +11,9 @@ import feign.RequestTemplate;
  * @version v1.0
  * @date 2017/5/24 12:59
  */
+@Component
 public class FeignTokenInterceptor implements RequestInterceptor {
+
 
     @Override
     public void apply(RequestTemplate template) {
@@ -19,6 +22,6 @@ public class FeignTokenInterceptor implements RequestInterceptor {
 //          template.header("Accept-Encoding","gzip");
 
         // 对所有的请求url 追加请求参数
-        template.query("token","ZGVsZXRlX3Rva2VuX2J5X2Jhc2U2NA==");
+        template.query("token", "ZGVsZXRlX3Rva2VuX2J5X2Jhc2U2NA==");
     }
 }

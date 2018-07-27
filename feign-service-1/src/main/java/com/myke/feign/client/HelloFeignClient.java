@@ -5,6 +5,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,7 +20,7 @@ public interface HelloFeignClient {
     /******************** 参数 ***************************/
 
     @RequestMapping(value = "/request-param", method = RequestMethod.GET)
-    Map<String, String> requestParam(@RequestParam(value = "name",required = false) String name, @RequestParam(value = "address",required = false) String address);
+    Map<String, String> requestParam(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "address", required = false) String address);
 
 
     @RequestMapping(value = "/request-header", method = RequestMethod.GET)
@@ -40,6 +41,19 @@ public interface HelloFeignClient {
 
     @RequestMapping(value = "/api/timeout", method = RequestMethod.GET)
     Map<String, String> timeout();
+
+    /**********************************************/
+
+    @RequestMapping(value = "/feign/request-error", method = RequestMethod.GET)
+    Map<String, String> requestError();
+
+    /**
+     * 测试 hello-1
+     *
+     * @return
+     */
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    String getHello();
 
 
 }
