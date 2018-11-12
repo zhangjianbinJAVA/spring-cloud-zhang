@@ -1,0 +1,10 @@
+## 覆盖配置文件属性
+org.springframework.boot.env.EnvironmentPostProcessor=\
+com.myke.feign.config.env.MyEnvironmentPostProcessor
+
+# 会在Spring启动之前的准备上下文阶段将其加入到容器中
+org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+com.myke.feign.config.env.MyConfigBootstrapConfiguration
+
+org.springframework.context.ApplicationListener=\
+  com.myke.feign.config.env.RemoteConfigListener

@@ -20,8 +20,9 @@ import org.springframework.cloud.netflix.turbine.EnableTurbine;
  * 和Hystrix Dashboard一样，Turbine也可以下载war包部署到Web容器
  */
 @EnableTurbine
-@EnableDiscoveryClient
 @EnableHystrixDashboard
+@EnableDiscoveryClient
+
 @SpringBootApplication
 public class TurbineDashboardApplication {
     public static void main(String[] args) {

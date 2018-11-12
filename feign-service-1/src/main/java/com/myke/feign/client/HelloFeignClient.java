@@ -1,11 +1,8 @@
 package com.myke.feign.client;
 
-import com.myke.hystrix.DisableHystrixConfiguration;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

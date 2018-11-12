@@ -1,14 +1,14 @@
 package com.myke.feign.web;
 
-import com.jd.ecc.commons.web.model.RespData;
-import com.myke.feign.client.AuthClient;
 import com.myke.feign.client.HelloFeignClient;
 import com.myke.feign.client.HelloFeignClient2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,8 +24,8 @@ public class HelloFeignController {
     @Autowired
     private HelloFeignClient2 helloFeignClient2;
 
-    @Autowired
-    private AuthClient authClient;
+    //@Autowired
+    //private AuthClient authClient;
 
     @RequestMapping(value = "/hello-1", method = RequestMethod.GET)
     public String hello1() {
@@ -77,8 +77,8 @@ public class HelloFeignController {
     }
 
 
-    @GetMapping("/queryAllResources")
-    public RespData qurery() {
-        return authClient.queryAllResources();
-    }
+    //@GetMapping("/queryAllResources")
+    //public RespData qurery() {
+    //    return authClient.queryAllResources();
+    //}
 }

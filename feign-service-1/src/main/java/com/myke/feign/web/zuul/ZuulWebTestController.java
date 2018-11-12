@@ -4,6 +4,7 @@ import com.myke.feign.client.HelloFeignClient;
 import com.myke.feign.exception.ecc.BaseException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -15,12 +16,17 @@ public class ZuulWebTestController {
     @Autowired
     private HelloFeignClient helloFeignClient;
 
+    @Value("${zhang:jianbin}")
+    private String zhang;
+
+
     @GetMapping("/zuul/error")
     public String throwError(@RequestParam(required = false) String exception) {
         if (StringUtils.isNotBlank(exception)) {
             throw new BaseException("20-001", "exception 参数异常");
         }
-        return "测试 网关 api throw error"  ;
+        System.out.println(zhang);
+        return "测试 网关 api throw error";
     }
 
     @GetMapping("/zuul/timeout")

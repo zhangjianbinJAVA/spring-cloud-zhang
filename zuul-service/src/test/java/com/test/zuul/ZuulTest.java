@@ -1,10 +1,12 @@
 package com.test.zuul;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.junit.Test;
 
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author zhangjianbin
@@ -21,6 +23,18 @@ public class ZuulTest {
 
         Object time = map.get("time");
         System.out.println(time);
+    }
+
+    @Test
+    public void jsonTest() {
+        JsonParser jsonParser = new JsonParser();
+        JsonElement parse = jsonParser.parse("{\"1\":[\"key\",\"value\"]}");
+        JsonObject jsonObject = parse.getAsJsonObject();
+        JsonArray asJsonArray = jsonObject.get("1").getAsJsonArray();
+        Iterator<JsonElement> iterator = asJsonArray.iterator();
+
+        Map objectObjectHashMap = new HashMap<>();
+        objectObjectHashMap.put("var_k",iterator.next().toString().replace("\"",""));
     }
 
 }
